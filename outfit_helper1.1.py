@@ -281,6 +281,13 @@ list of materials
         del mat_nm[mat_index]
         del mat_temp[mat_index]
         mat_listbox.delete(ANCHOR)
+        print('''
+list of materials
+-----------------------------------------------------------''')
+        t = 0
+        for i in mat_list:
+            print(str(t+1)+":", mat_list[t]+"| type:", mat_temp[t]+'| normals:', mat_nm[t])
+            t+=1
     def mat_edit_func():
         mat_index= mat_list.index(mat_listbox.get(ANCHOR))
         mat_temp[mat_index]=template_act.get()
@@ -511,7 +518,7 @@ def make_file(): #this is what will generate the actual files
 ''')
         if mat_temp[x] == 'opacity': #opacity render template
             material_file.write('''	<material render_template="opacity:DIFFUSE_TEXTURE:NORMALMAP:OPACITY_CONTROLLER:SKINNED_3WEIGHTS" unique="true" version="2" name="'''+mat_list[x]+'''">
-		<opacity_texture file="units/payday2/characters/'''+skin_get+'''/'''+mat_list[x]+'''_op"/>
+		<opacity_texture file="units/wardrobe_mod/armor_skins/'''+skin_get+'''/'''+mat_list[x]+'''_op"/>
 ''')
         material_file.write('''        <diffuse_texture file="units/wardrobe_mod/armor_skins/'''+skin_get+'''/'''+mat_list[x]+'''_df"/>
 ''')
